@@ -104,3 +104,6 @@ pip install SpeechRecognition pyaudio pyttsx3 requests
 https://ollama.com/download
 
 Go to settings and expose Ollama to the network by enabling it.
+
+# How to Run
+Hover over debug/run button on the left button pane and select show automatic python configuration. It will show a list and then select ASR.
