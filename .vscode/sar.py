@@ -1,9 +1,14 @@
 import speech_recognition as sr
 import pyttsx3
 import sys
+import requests
 
 def listen_and_recognize():
     print(f"Hello, I'm running Python version {sys.version}")
+
+    # Define the local endpoint for Ollama
+    ollama_endpoint = "http://localhost:11434/api/generate"
+
 
     # Initialize the Recognizer ONCE
     recognizer = sr.Recognizer()
@@ -29,13 +34,34 @@ def listen_and_recognize():
             text = recognizer.recognize_google(audio)
             print(f"You said: {text}")
 
+            # Prepare the payload
+            payload = {
+                "prompt": text,
+                "model": "gpt-oss-20b",
+                "max_tokens": 100
+            }
+
+            # Send the request to Ollama
+            response = requests.post(ollama_endpoint, json=payload)
+
+            # Predefine to avoid undefined variable
+            text_response = None  
+
+            # Parse and print the response
+            if response.status_code == 200:
+                result = response.json()
+                text_response = result["choices"][0]["text"]
+                print("Response from Ollama:", text_response)
+            else:
+                print("Error:", response.status_code, response.text)
+
             # --- THE FIX ---
             # 1. Initialize a NEW engine instance
             tts_engine = pyttsx3.init()
             tts_engine.setProperty('volume', 1.0)
             
-            # 2. Say the text
-            tts_engine.say(text)
+            # 2. Say the text response
+            tts_engine.say(text_response)
             tts_engine.runAndWait()
             
             # 3. Explicitly stop and delete the engine

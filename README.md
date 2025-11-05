@@ -97,4 +97,4 @@ restart vscode
 
 Select Run and Debug to create a launch.json file
 
-pip install SpeechRecognition pyaudio pyttsx3
+pip install SpeechRecognition pyaudio pyttsx3 requests
