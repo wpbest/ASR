@@ -34,12 +34,20 @@ def listen_and_recognize():
             text = recognizer.recognize_google(audio)
             print(f"You said: {text}")
 
+            # Create a self-constraining instruction for minimal output
+            constrained_prompt = (
+                 f"Create the ultimate minimal response to the following prompt: {text}\n"
+                 "Respond with as fewest words as possible, ideally in a complete sentence."
+            )
+
             # Prepare the payload
             payload = {
-                "prompt": text,
+                "prompt": constrained_prompt,
                 "model": "gemma3:1b", # Google snallest model
                 # "model": "gpt-oss:20b", # Open AI smallest model
-                "stream": False
+                "stream": False,
+                "temperature": 0.0,
+                "max_tokens": 20
             }
 
             # Send the request to Ollama
