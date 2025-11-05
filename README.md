@@ -82,7 +82,7 @@ python -m venv .venv
 
 # Activate the Python Virtal Environment
 ```PowerShell
-python .\.venv\Scripts\activate.bat
+.\.venv\Scripts\Activate.ps1
 ```
 
 code .
