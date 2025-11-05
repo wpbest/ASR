@@ -98,3 +98,8 @@ restart vscode
 Select Run and Debug to create a launch.json file
 
 pip install SpeechRecognition pyaudio pyttsx3 requests
+
+# Install Ollama
+https://ollama.com/download
+
+Go to settings and expose Ollama to the network by enabling it.
