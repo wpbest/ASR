@@ -105,9 +105,14 @@ https://ollama.com/download
 
 Go to settings and expose Ollama to the network by enabling it.
 
-# Dounload the models
+# Download the models
 gpt-oss:20b Open AI smallest model
 gemma3:1b Google smallest model
+
+
+# Set what model you will be using in the code
+"model": "gemma3:1b", # Google snallest model
+"model": "gpt-oss:20b", # Open AI smallest model
 
 # How to Run
 Click on the main python file sar.py

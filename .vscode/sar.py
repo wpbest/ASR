@@ -44,7 +44,6 @@ def listen_and_recognize():
             payload = {
                 "prompt": constrained_prompt,
                 "model": "gemma3:1b", # Google snallest model
-                # "model": "gpt-oss:20b", # Open AI smallest model
                 "stream": False,
                 "temperature": 0.0,
                 "max_tokens": 20
