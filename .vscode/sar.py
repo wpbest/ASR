@@ -37,23 +37,24 @@ def listen_and_recognize():
             # Prepare the payload
             payload = {
                 "prompt": text,
-                "model": "gpt-oss-20b",
-                "max_tokens": 100
+                "model": "gpt-oss:20b",
+                "stream": False
             }
 
             # Send the request to Ollama
             response = requests.post(ollama_endpoint, json=payload)
 
             # Predefine to avoid undefined variable
-            text_response = None  
+            text_response = "Sorry, there was an error from the model."
 
             # Parse and print the response
             if response.status_code == 200:
                 result = response.json()
-                text_response = result["choices"][0]["text"]
+                text_response = result["response"]
                 print("Response from Ollama:", text_response)
             else:
                 print("Error:", response.status_code, response.text)
+                text_response = f"Error {response.status_code}"
 
             # --- THE FIX ---
             # 1. Initialize a NEW engine instance
@@ -65,7 +66,6 @@ def listen_and_recognize():
             tts_engine.runAndWait()
             
             # 3. Explicitly stop and delete the engine
-            tts_engine.stop()
             del tts_engine
             # --- END FIX ---
             
