@@ -82,13 +82,14 @@ python -m venv .venv
 
 # Activate the Python Virtal Environment
 ```PowerShell
-python .\.venv\Scripts
+python .\.venv\Scripts\activate.bat
 ```
 
 code .
 
 Open Command Pallet
 Ctrl Shit P
+
 settings json
 
 "python.terminal.activateEnvironment": true
