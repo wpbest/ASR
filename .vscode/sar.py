@@ -37,7 +37,8 @@ def listen_and_recognize():
             # Prepare the payload
             payload = {
                 "prompt": text,
-                "model": "gpt-oss:20b",
+                "model": "gemma3:1b", # Google snallest model
+                # "model": "gpt-oss:20b", # Open AI smallest model
                 "stream": False
             }
 

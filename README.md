@@ -105,6 +105,10 @@ https://ollama.com/download
 
 Go to settings and expose Ollama to the network by enabling it.
 
+# Dounload the models
+gpt-oss:20b Open AI smallest model
+gemma3:1b Google smallest model
+
 # How to Run
 Click on the main python file sar.py
 Hover over debug/run button on the left button pane and select show automatic python configuration. It will show a list and then select ASR.
