@@ -96,9 +96,8 @@ settings json
 
 restart vscode
 
-Select Run and Debug to create a launch.json file
-
-pip install SpeechRecognition pyaudio pyttsx3 requests
+# Install Python dependancies
+pip install -r requirements.txt
 
 # Install Ollama
 https://ollama.com/download
