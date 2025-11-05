@@ -64,7 +64,6 @@ def listen_and_recognize():
                 print("Error:", response.status_code, response.text)
                 text_response = f"Error {response.status_code}"
 
-            # --- THE FIX ---
             # 1. Initialize a NEW engine instance
             tts_engine = pyttsx3.init()
             tts_engine.setProperty('volume', 1.0)
@@ -75,7 +74,6 @@ def listen_and_recognize():
             
             # 3. Explicitly stop and delete the engine
             del tts_engine
-            # --- END FIX ---
             
         except sr.UnknownValueError:
             print("Sorry, I couldn't understand what you said.")
